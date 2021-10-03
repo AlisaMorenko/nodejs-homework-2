@@ -35,5 +35,4 @@
 - `npm run lint` &mdash; запустить выполнение проверки кода с eslint, необходимо
   выполнять перед каждым PR и исправлять все ошибки линтера
 - `npm lint:fix` &mdash; та же проверка линтера, но с автоматическими
-  исправлениями простых ошибок Alisa Y68bM4FRebMTJ3uu
-  mongodb+srv://Alisa:Y68bM4FRebMTJ3uu@cluster0.4svm3.mongodb.net/db-contacts?retryWrites=true&w=majority
+  исправлениями простых ошибок
