@@ -1,6 +1,4 @@
 const { NotFound, BadRequest } = require('http-errors');
-const { object } = require('joi');
-const { isValidObjectId } = require('mongoose');
 const { Contact, joiSchemaStatus, joiSchema } = require('../model/index');
 
 const getAllContacts = async (req, res) => {
