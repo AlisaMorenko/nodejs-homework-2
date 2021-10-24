@@ -33,7 +33,7 @@ const updateAvatar = async (req, res) => {
     });
   } catch (error) {
     await fs.unlink(tempDir);
-    // next(error);
+    next(error);
   }
 };
 
