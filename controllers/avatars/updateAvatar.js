@@ -6,6 +6,11 @@ const { User } = require('../../model/user');
 const updateAvatar = async (req, res) => {
   const { path: tempDir, originalname } = req.file;
 
+  const { _id, avatarURL } = req.user;
+  const [extension] = originalname.split('.').reverse();
+  const filename = `${_id}.${extension}`;
+  const uploadDir = path.join(__dirname, '../../', 'public\\avatars', filename);
+
   await Jimp.read(tempDir)
     .then(avatar => {
       return avatar.resize(250, 250).quality(60).greyscale().write(tempDir);
@@ -14,10 +19,6 @@ const updateAvatar = async (req, res) => {
       console.error(err);
     });
 
-  const { _id, avatarURL } = req.user;
-  const [extension] = originalname.split('.').reverse();
-  const filename = `${_id}.${extension}`;
-  const uploadDir = path.join(__dirname, '../../', 'public\\avatars', filename);
   try {
     await fs.rename(tempDir, uploadDir);
     const image = path.join('avatars', filename);
@@ -32,7 +33,7 @@ const updateAvatar = async (req, res) => {
     });
   } catch (error) {
     await fs.unlink(tempDir);
-    next(error);
+    // next(error);
   }
 };
 
