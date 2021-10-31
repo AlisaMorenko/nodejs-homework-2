@@ -5,6 +5,8 @@ const authenticate = require('../../middlewares/authenticate');
 const upload = require('../../middlewares/upload');
 const ctrl = require('../../controllers/avatars');
 
+// router.get('./verify/:verificationToken', controllerWrapper(ctrl.verify));
+
 router.patch(
   '/avatars',
   authenticate,
